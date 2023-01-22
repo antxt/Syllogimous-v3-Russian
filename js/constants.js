@@ -2124,6 +2124,41 @@ const forms = [
         'Some <span class="subject">$</span> is <span class="subject">$</span>',
         'Some <span class="subject">$</span> is not <span class="subject">$</span>'
     ],
+const validRules = [
+    "0001",
+    "1011",
+    "0221",
+    "1231",
+    "0021",
+    "1031",
+    "0112",
+    "1012",
+    "1232",
+    "0332",
+    "0132",
+    "1032",
+    "0223",
+    "2023",
+    "3033",
+    "1233",
+    "0023",
+    "1033",
+    "0114",
+    "2024",
+    "1234",
+    "0134",
+    "1034",
+    "0024"
+];
+
+// This seems such a stupid idea but it opens the possibility of variants
+const forms = [
+    [
+        'All <span class="subject">$</span> is <span class="subject">$</span>',
+        'No <span class="subject">$</span> is <span class="subject">$</span>',
+        'Some <span class="subject">$</span> is <span class="subject">$</span>',
+        'Some <span class="subject">$</span> is not <span class="subject">$</span>'
+    ],
     [
         '<span class="is-negated">No</span> <span class="subject">$</span> is <span class="subject">$</span>',
         '<span class="is-negated">All</span> <span class="subject">$</span> is <span class="subject">$</span>',
@@ -2134,25 +2169,25 @@ const forms = [
 
 const dirNames = [
     null,
-    "Север",
-     "Север-Восток",
-     "Восток",
-     "Юг-Восток",
-     "Юг",
-     "Юг-Запад",
-     "Запад",
-     "Север-Запад"
+    "North",
+    "North-East",
+    "East",
+    "South-East",
+    "South",
+    "South-West",
+    "West",
+    "North-West"
 ];
 
 const nameInverseDir = {
-    "Север": "Юг",
-    "Север-Восток": "Север-Запад",
-    "Восток": "Запад",
-    "Юг-Восток": "Север-Запад",
-    "Юг": "Север",
-    "Юг-Запад": "Север-Восток",
-    "Запад": "Восток",
-    "Север-Запад": "Юг-Восток"
+    "North": "South",
+    "North-East": "South-West",
+    "East": "West",
+    "South-East": "North-West",
+    "South": "North",
+    "South-West": "North-East",
+    "West": "East",
+    "North-West": "South-East"
 };
 
 const dirCoords = [
@@ -2169,14 +2204,14 @@ const dirCoords = [
 
 const dirString = (x, y, z) => {
     let str = '';
-    if (z === 1) str = 'Сверху';
-    if (z === -1) str = 'Снизу';
-    if (z && (x || y)) str += ' и ';
-    if (y === 1) str += 'Север';
-    if (y === -1) str += 'Восток';
+    if (z === 1) str = 'Above';
+    if (z === -1) str = 'Below';
+    if (z && (x || y)) str += ' and ';
+    if (y === 1) str += 'North';
+    if (y === -1) str += 'South';
     if (y && x) str += '-';
-    if (x === 1) str += 'Восток';
-    if (x === -1) str += 'Запад';
+    if (x === 1) str += 'East';
+    if (x === -1) str += 'West';
     return str;
 }
 
@@ -2196,7 +2231,7 @@ xs.map(x =>
     )
 );
 
-const timeNames = ['был', 'есть', 'будет'];
+const timeNames = ['was', 'is', 'will be'];
 
 const paradoxes = [
     {
