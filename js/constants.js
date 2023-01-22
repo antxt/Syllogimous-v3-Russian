@@ -1670,7 +1670,7 @@ const nouns = [
      "Пояс",
      "Бермуды",
      "Велосипед",
-     "Велосипед",
+     "Мотоцикл",
      "Бикини",
      "Счет",
      "Птица",
@@ -1979,7 +1979,7 @@ const nouns = [
      "Сенатор",
     "Шампунь",
      "Акула",
-     "Овец",
+     "Овца",
      "Корабль",
      "Рубашка",
      "Обувь",
@@ -2019,7 +2019,7 @@ const nouns = [
      "Подходить",
      "Чемодан",
      "Солнце",
-     "Врач хирург",
+     "Хирург",
      "Лебедь",
      "Свитер",
      "Сладкий",
@@ -2074,7 +2074,7 @@ const nouns = [
      "Вода",
      "Кит",
      "Пшеница",
-     "Вискер",
+     "Виски",
      "Окно",
      "Крылья",
      "Зима",
@@ -2082,7 +2082,7 @@ const nouns = [
      "Волк",
      "Женщина",
      "Древесина",
-     "Ранить",
+     "Рана",
      "Запястье",
      "Ксилофон",
      "Зебра",
@@ -2119,40 +2119,40 @@ const validRules = [
 // This seems such a stupid idea but it opens the possibility of variants
 const forms = [
     [
-        'All <span class="subject">$</span> is <span class="subject">$</span>',
-        'No <span class="subject">$</span> is <span class="subject">$</span>',
-        'Some <span class="subject">$</span> is <span class="subject">$</span>',
-        'Some <span class="subject">$</span> is not <span class="subject">$</span>'
+        'Все <span class="subject">$</span> являются <span class="subject">$</span>',
+        'Ни один <span class="subject">$</span> не является <span class="subject">$</span>',
+        'Некоторые <span class="subject">$</span> являются <span class="subject">$</span>',
+        'Некоторые <span class="subject">$</span> не являются <span class="subject">$</span>'
     ],
     [
-        '<span class="is-negated">No</span> <span class="subject">$</span> is <span class="subject">$</span>',
-        '<span class="is-negated">All</span> <span class="subject">$</span> is <span class="subject">$</span>',
-        'Some <span class="subject">$</span> <span class="is-negated">is not</span> <span class="subject">$</span>',
-        'Some <span class="subject">$</span> <span class="is-negated">is</span> <span class="subject">$</span>'
+        '<span class="is-negated">Ни один</span> <span class="subject">$</span> не является <span class="subject">$</span>',
+        '<span class="is-negated">Все</span> <span class="subject">$</span> являются <span class="subject">$</span>',
+        'Некоторые <span class="subject">$</span> <span class="is-negated">не являются</span> <span class="subject">$</span>',
+        'Некоторые <span class="subject">$</span> <span class="is-negated">являются</span> <span class="subject">$</span>'
     ],
 ];
 
 const dirNames = [
     null,
-    "North",
-    "North-East",
-    "East",
-    "South-East",
-    "South",
-    "South-West",
-    "West",
-    "North-West"
+    "Север",
+    "Север-Восток",
+    "Восток",
+    "Юг-Восток",
+    "Юг",
+    "Юг-Запад",
+    "Запад",
+    "Север-Запад"
 ];
 
 const nameInverseDir = {
-    "North": "South",
-    "North-East": "South-West",
-    "East": "West",
-    "South-East": "North-West",
-    "South": "North",
-    "South-West": "North-East",
-    "West": "East",
-    "North-West": "South-East"
+    "Север": "Юг",
+    "Север-Восток": "Юг-Запад",
+    "Восток": "Запад",
+    "Юг-Восток": "Север-Запад",
+    "Юг": "Север",
+    "Юг-Запад": "Север-Восток",
+    "Запад": "Восток",
+    "Север-Запад": "Юг-Восток"
 };
 
 const dirCoords = [
@@ -2169,14 +2169,14 @@ const dirCoords = [
 
 const dirString = (x, y, z) => {
     let str = '';
-    if (z === 1) str = 'Above';
-    if (z === -1) str = 'Below';
-    if (z && (x || y)) str += ' and ';
-    if (y === 1) str += 'North';
-    if (y === -1) str += 'South';
+    if (z === 1) str = 'Над';
+    if (z === -1) str = 'Под';
+    if (z && (x || y)) str += ' и ';
+    if (y === 1) str += 'Север';
+    if (y === -1) str += 'Юг';
     if (y && x) str += '-';
-    if (x === 1) str += 'East';
-    if (x === -1) str += 'West';
+    if (x === 1) str += 'Восток';
+    if (x === -1) str += 'Запад';
     return str;
 }
 
@@ -2399,7 +2399,7 @@ const logicPuzzles = [
         isValid: false,
         premises: [
             "Two people want to talk with you",
-            "And you ask: Is at least one of you an Honestant?",
+            "And you ask: Is at lВосток one of you an Honestant?",
             "After the answers there was no doubt",
             "Honestants always speak the truth",
             "Swindlecants always lie"
