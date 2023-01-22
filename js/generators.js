@@ -89,8 +89,8 @@ function createSameOpposite(length) {
 
             if (coinFlip()) {
                 const ps = [
-                    `<span class="subject">${prev}</span> is same as <span class="subject">${curr}</span>`,
-                    `<span class="subject">${prev}</span> is <span class="is-negated">opposite of</span> <span class="subject">${curr}</span>`,
+                    `<span class="subject">${prev}</span> такой же как <span class="subject">${curr}</span>`,
+                    `<span class="subject">${prev}</span>  <span class="is-negated">противоположный к</span> <span class="subject">${curr}</span>`,
                 ];
                 premises.push((!savedata.enableNegation)
                     ? ps[0]
@@ -98,8 +98,8 @@ function createSameOpposite(length) {
                 buckets[prevBucket].push(curr);
             } else {
                 const ps = [
-                    `<span class="subject">${prev}</span> is opposite of <span class="subject">${curr}</span>`,
-                    `<span class="subject">${prev}</span> is <span class="is-negated">same as</span> <span class="subject">${curr}</span>`,
+                    `<span class="subject">${prev}</span> противоположный к <span class="subject">${curr}</span>`,
+                    `<span class="subject">${prev}</span>  <span class="is-negated">такой же как</span> <span class="subject">${curr}</span>`,
                 ];
                 premises.push((!savedata.enableNegation)
                     ? ps[0]
@@ -142,8 +142,8 @@ function createSameOpposite(length) {
 
         if (coinFlip()) {
             const cs = [
-                `<span class="subject">${first}</span> is same as <span class="subject">${curr}</span>`,
-                `<span class="subject">${first}</span> is <span class="is-negated">opposite of</span> <span class="subject">${curr}</span>`,
+                `<span class="subject">${first}</span> такой же как <span class="subject">${curr}</span>`,
+                `<span class="subject">${first}</span>  <span class="is-negated">противоположный к</span> <span class="subject">${curr}</span>`,
             ];
             conclusion = (!savedata.enableNegation)
                 ? cs[0]
@@ -151,8 +151,8 @@ function createSameOpposite(length) {
             isValid = buckets[0].includes(curr);
         } else {
             const cs = [
-                `<span class="subject">${first}</span> is opposite of <span class="subject">${curr}</span>`,
-                `<span class="subject">${first}</span> is <span class="is-negated">same as</span> <span class="subject">${curr}</span>`,
+                `<span class="subject">${first}</span> противоположный к <span class="subject">${curr}</span>`,
+                `<span class="subject">${first}</span>  <span class="is-negated">такой же как</span> <span class="subject">${curr}</span>`,
             ];
             conclusion = (!savedata.enableNegation)
                 ? cs[0]
@@ -200,16 +200,16 @@ function createMoreLess(length) {
             if (coinFlip()) {
                 if (sign === 1) {
                     const ps = [
-                        `<span class="subject">${next}</span> is more than <span class="subject">${curr}</span>`,
-                        `<span class="subject">${next}</span> is <span class="is-negated">less</span> than <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span> больше чем <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span> <span class="is-negated">меньше</span> чем <span class="subject">${curr}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
                         : pickUniqueItems(ps, 1).picked[0]);
                 } else {
                     const ps = [
-                        `<span class="subject">${curr}</span> is more than <span class="subject">${next}</span>`,
-                        `<span class="subject">${curr}</span> is <span class="is-negated">less</span> than <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span> больше чем <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span>  <span class="is-negated">меньше</span> чем <span class="subject">${next}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
@@ -218,16 +218,16 @@ function createMoreLess(length) {
             } else {
                 if (sign === 1) {
                     const ps = [
-                        `<span class="subject">${curr}</span> is less than <span class="subject">${next}</span>`,
-                        `<span class="subject">${curr}</span> is <span class="is-negated">more</span> than <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span> меньше чем <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span>  <span class="is-negated">больше</span> чем <span class="subject">${next}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
                         : pickUniqueItems(ps, 1).picked[0]);
                 } else {
                     const ps = [
-                        `<span class="subject">${next}</span> is less than <span class="subject">${curr}</span>`,
-                        `<span class="subject">${next}</span> is <span class="is-negated">more</span> than <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span> меньше чем <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span>  <span class="is-negated">больше</span> чем <span class="subject">${curr}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
@@ -272,8 +272,8 @@ function createMoreLess(length) {
         }
         if (coinFlip()) {
             const cs = [
-                `<span class="subject">${bucket[a]}</span> is less than <span class="subject">${bucket[b]}</span>`,
-                `<span class="subject">${bucket[a]}</span> is <span class="is-negated">more</span> than <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span> меньше чем <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span>  <span class="is-negated">больше</span> чем <span class="subject">${bucket[b]}</span>`,
             ];
             conclusion = (!savedata.enableNegation)
                 ? cs[0]
@@ -281,8 +281,8 @@ function createMoreLess(length) {
             isValid = sign === 1 && a < b || sign === -1 && a > b;
         } else {
             const cs = [
-                `<span class="subject">${bucket[a]}</span> is more than <span class="subject">${bucket[b]}</span>`,
-                `<span class="subject">${bucket[a]}</span> is <span class="is-negated">less</span> than <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span> больше чем <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span>  <span class="is-negated">меньше</span> чем <span class="subject">${bucket[b]}</span>`,
             ];
             conclusion = (!savedata.enableNegation)
                 ? cs[0]
@@ -329,16 +329,16 @@ function createBeforeAfter(length) {
             if (coinFlip()) {
                 if (sign === 1) {
                     const ps = [
-                        `<span class="subject">${next}</span> is after <span class="subject">${curr}</span>`,
-                        `<span class="subject">${next}</span> is <span class="is-negated">before</span> <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span> после <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span>  <span class="is-negated">перед</span> <span class="subject">${curr}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
                         : pickUniqueItems(ps, 1).picked[0]);
                 } else {
                     const ps = [
-                        `<span class="subject">${curr}</span> is after <span class="subject">${next}</span>`,
-                        `<span class="subject">${curr}</span> is <span class="is-negated">before</span> <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span> после <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span> <span class="is-negated">перед</span> <span class="subject">${next}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
@@ -347,16 +347,16 @@ function createBeforeAfter(length) {
             } else {
                 if (sign === 1) {
                     const ps = [
-                        `<span class="subject">${curr}</span> is before <span class="subject">${next}</span>`,
-                        `<span class="subject">${curr}</span> is <span class="is-negated">after</span> <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span> перед <span class="subject">${next}</span>`,
+                        `<span class="subject">${curr}</span>  <span class="is-negated">после</span> <span class="subject">${next}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
                         : pickUniqueItems(ps, 1).picked[0]);
                 } else {
                     const ps = [
-                        `<span class="subject">${next}</span> is before <span class="subject">${curr}</span>`,
-                        `<span class="subject">${next}</span> is <span class="is-negated">after</span> <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span> перед <span class="subject">${curr}</span>`,
+                        `<span class="subject">${next}</span> <span class="is-negated">после</span> <span class="subject">${curr}</span>`,
                     ];
                     premises.push((!savedata.enableNegation)
                         ? ps[0]
@@ -401,8 +401,8 @@ function createBeforeAfter(length) {
         }
         if (coinFlip()) {
             const cs = [
-                `<span class="subject">${bucket[a]}</span> is before <span class="subject">${bucket[b]}</span>`,
-                `<span class="subject">${bucket[a]}</span> is <span class="is-negated">after</span> <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span> перед <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span>  <span class="is-negated">после</span> <span class="subject">${bucket[b]}</span>`,
             ];
             conclusion = (!savedata.enableNegation)
                 ? cs[0]
@@ -410,8 +410,8 @@ function createBeforeAfter(length) {
             isValid = sign === 1 && a < b || sign === -1 && a > b;
         } else {
             const cs = [
-                `<span class="subject">${bucket[a]}</span> is after <span class="subject">${bucket[b]}</span>`,
-                `<span class="subject">${bucket[a]}</span> is <span class="is-negated">before</span> <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span> после <span class="subject">${bucket[b]}</span>`,
+                `<span class="subject">${bucket[a]}</span>  <span class="is-negated">перед</span> <span class="subject">${bucket[b]}</span>`,
             ];
             conclusion = (!savedata.enableNegation)
                 ? cs[0]
@@ -680,7 +680,7 @@ function createSameDifferent(length) {
 
         // Pick 4 different items
         [a, b, c, d] = pickUniqueItems([...choice.buckets[0], ...choice.buckets[1]], 4).picked;
-        conclusion += `<span class="subject">${a}</span> to <span class="subject">${b}</span>`;
+        conclusion += `<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>`;
 
         // Find in which side a, b, c and d are
         [
@@ -704,7 +704,7 @@ function createSameDifferent(length) {
 
         // Pick 4 different items
         [a, b, c, d] = pickUniqueItems(choice.bucket, 4).picked;
-        conclusion += `<span class="subject">${a}</span> to <span class="subject">${b}</span>`;
+        conclusion += `<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>`;
 
         // Find indices of elements
         [indexOfA, indexOfB] = [choice.bucket.indexOf(a), choice.bucket.indexOf(b)];
@@ -719,7 +719,7 @@ function createSameDifferent(length) {
 
         // Pick 4 different items
         [a, b, c, d] = pickUniqueItems(choice.bucket, 4).picked;
-        conclusion += `<span class="subject">${a}</span> to <span class="subject">${b}</span>`;
+        conclusion += `<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>`;
 
         // Find indices of elements
         [indexOfA, indexOfB] = [choice.bucket.indexOf(a), choice.bucket.indexOf(b)];
@@ -738,7 +738,7 @@ function createSameDifferent(length) {
 
             // Pick 4 different items
             [a, b, c, d] = pickUniqueItems(Object.keys(choice.wordCoordMap), 4).picked;
-            conclusion += `<span class="subject">${a}</span> to <span class="subject">${b}</span>`;
+            conclusion += `<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>`;
 
             // Find if A to B has same relation of C to D
             isValidSame = findDirection(choice.wordCoordMap[a], choice.wordCoordMap[b]) === findDirection(choice.wordCoordMap[c], choice.wordCoordMap[d]);
@@ -754,7 +754,7 @@ function createSameDifferent(length) {
 
             // Pick 4 different items
             [a, b, c, d] = pickUniqueItems(Object.keys(choice.wordCoordMap), 4).picked;
-            conclusion += `<span class="subject">${a}</span> to <span class="subject">${b}</span>`;
+            conclusion += `<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>`;
 
             // Find if A to B has same relation of C to D
             isValidSame = findDirection3D(choice.wordCoordMap[a], choice.wordCoordMap[b]) === findDirection3D(choice.wordCoordMap[c], choice.wordCoordMap[d]);
@@ -770,7 +770,7 @@ function createSameDifferent(length) {
 
             // Pick 4 different items
             [a, b, c, d] = pickUniqueItems(Object.keys(choice.wordCoordMap), 4).picked;
-            conclusion += `<span class="subject">${a}</span> to <span class="subject">${b}</span>`;
+            conclusion += `<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>`;
 
             // Find if A to B has same relation of C to D
             const {
@@ -789,8 +789,8 @@ function createSameDifferent(length) {
         isValid = isValidSame;
         if (choiceIndex < 1) {
             const cs = [
-                '<div class="analogy-conclusion-relation">is the same as</div>',
-                '<div class="analogy-conclusion-relation is-negated">is different from</div>'
+                '<div class="analogy-conclusion-relation"> такой же как</div>',
+                '<div class="analogy-conclusion-relation is-negated">отличается от</div>'
             ];
             conclusion += (!savedata.enableNegation && coinFlip())
                 ? cs[0]
@@ -798,8 +798,8 @@ function createSameDifferent(length) {
         }
         else {
             const cs = [
-                '<div class="analogy-conclusion-relation">has the same relation as</div>',
-                '<div class="analogy-conclusion-relation is-negated">has a different relation from</div>'
+                '<div class="analogy-conclusion-relation">так же относится как</div>',
+                '<div class="analogy-conclusion-relation is-negated">относится по другому чем</div>'
             ];
             conclusion += (!savedata.enableNegation && coinFlip())
                 ? cs[0]
@@ -810,8 +810,8 @@ function createSameDifferent(length) {
         isValid = !isValidSame;
         if (choiceIndex < 1) {
             const cs = [
-                '<div class="analogy-conclusion-relation">is different from</div>',
-                '<div class="analogy-conclusion-relation is-negated">is the same as</div>'
+                '<div class="analogy-conclusion-relation">отличается от</div>',
+                '<div class="analogy-conclusion-relation is-negated">такой же как</div>'
             ];
             conclusion += (!savedata.enableNegation && coinFlip())
                 ? cs[0]
@@ -820,8 +820,8 @@ function createSameDifferent(length) {
         }
         else {
             const cs = [
-                '<div class="analogy-conclusion-relation">has a different relation from</div>',
-                '<div class="analogy-conclusion-relation is-negated">has the same relation as</div>',
+                '<div class="analogy-conclusion-relation">относится по другому чем</div>',
+                '<div class="analogy-conclusion-relation is-negated">относится также как</div>',
             ];
             conclusion += (!savedata.enableNegation && coinFlip())
                 ? cs[0]
@@ -877,8 +877,8 @@ function createDirectionQuestion(length) {
                 wordCoordMap[words[i]][1] + dirCoord[1]  // y
             ];
             const ps = [
-                `<span class="subject">${words[i+1]}</span> is at ${dirName} of <span class="subject">${words[i]}</span>`,
-                `<span class="subject">${words[i+1]}</span> is at <span class="is-negated">${nameInverseDir[dirName]}</span> of <span class="subject">${words[i]}</span>`,
+                `<span class="subject">${words[i+1]}</span> находится на ${dirName} от <span class="subject">${words[i]}</span>`,
+                `<span class="subject">${words[i+1]}</span> находится на <span class="is-negated">${nameInverseDir[dirName]}</span> от <span class="subject">${words[i]}</span>`,
             ];
             premises.push((!savedata.enableNegation)
                 ? ps[0]
@@ -895,8 +895,8 @@ function createDirectionQuestion(length) {
     if (coinFlip()) { // correct
         isValid = true;
         const cs = [
-            `<span class="subject">${words[0]}</span> is at ${conclusionDirName} of <span class="subject">${words[words.length-1]}</span>`,
-            `<span class="subject">${words[0]}</span> is at <span class="is-negated">${nameInverseDir[conclusionDirName]}</span> of <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> находится на ${conclusionDirName} от <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> находится на <span class="is-negated">${nameInverseDir[conclusionDirName]}</span> от <span class="subject">${words[words.length-1]}</span>`,
         ];
         conclusion = (!savedata.enableNegation)
             ? cs[0]
@@ -909,8 +909,8 @@ function createDirectionQuestion(length) {
             wordCoordMap[words[0]]
         );
         const cs = [
-            `<span class="subject">${words[0]}</span> is at ${oppositeDirection} of <span class="subject">${words[words.length-1]}</span>`,
-            `<span class="subject">${words[0]}</span> is at <span class="is-negated">${nameInverseDir[oppositeDirection]}</span> of <span class="subject">${words[words.length-1]}</span>`
+            `<span class="subject">${words[0]}</span> находится на ${oppositeDirection} от <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> находится на <span class="is-negated">${nameInverseDir[oppositeDirection]}</span> от <span class="subject">${words[words.length-1]}</span>`
         ];
         conclusion = (!savedata.enableNegation)
             ? cs[0]
