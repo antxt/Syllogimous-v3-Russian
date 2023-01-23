@@ -33,34 +33,34 @@ function metaSubstitution(choosenPair, relations, negations) {
         ]
         .map(m => m[1]);
     if (!negations[0] && !negations[1] && relations[0] === relations[1])
-        substitution = `$1 same as <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+        substitution = `$1 такой же как <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (!negations[0] && negations[1] && relations[0] === relations[1])
-        substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+        substitution = `$1 противоположный к <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (negations[0] && !negations[1] && relations[0] === relations[1])
         if (savedata.enableNegation)
-            substitution = `$1 <span class="is-negated">same as</span> <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 <span class="is-negated"> такой же как</span> <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
         else
-            substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (negations[0] && negations[1] && relations[0] === relations[1])
         if (savedata.enableNegation)
-            substitution = `$1 <span class="is-negated">opposite of</span> <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 <span class="is-negated"> противоположный к</span> <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
         else
-            substitution = `$1 same as <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 такой же как <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
 
     if (!negations[0] && !negations[1] && relations[0] !== relations[1])
         if (savedata.enableNegation)
-            substitution = `$1 <span class="is-negated">same as</span> <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 <span class="is-negated">такой же как</span> <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
         else
-            substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (!negations[0] && negations[1] && relations[0] !== relations[1])
         if (savedata.enableNegation)
-            substitution = `$1 <span class="is-negated">opposite of</span> <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 <span class="is-negated">противоположный к</span> <span class="is-meta">(<span class="subject">${a}</span> относительно <span class="subject">${b}</span>)</span> относительно `;
         else
-            substitution = `$1 same as <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+            substitution = `$1 такой же как <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (negations[0] && !negations[1] && relations[0] !== relations[1])
-        substitution = `$1 same as <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+        substitution = `$1 такой же как <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (negations[0] && negations[1] && relations[0] !== relations[1])
-        substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> to <span class="subject">${b}</span>)</span> to `;
+        substitution = `$1 противоположный к <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
 
     return substitution;
 }
@@ -972,8 +972,8 @@ function createDirectionQuestion3D(length) {
                 wordCoordMap[words[i]][2] + dirCoord[2], // z
             ];
             const ps = [
-                `<span class="subject">${words[i+1]}</span> is ${dirName} of <span class="subject">${words[i]}</span>`,
-                `<span class="subject">${words[i+1]}</span> is <span class="is-negated">${nameInverseDir3D[dirName]}</span> of <span class="subject">${words[i]}</span>`,
+                `<span class="subject">${words[i+1]}</span> находится ${dirName} от <span class="subject">${words[i]}</span>`,
+                `<span class="subject">${words[i+1]}</span> находится <span class="is-negated">${nameInverseDir3D[dirName]}</span> от <span class="subject">${words[i]}</span>`,
             ];
             premises.push((!savedata.enableNegation)
                 ? ps[0]
@@ -990,8 +990,8 @@ function createDirectionQuestion3D(length) {
     if (coinFlip()) { // correct
         isValid = true;
         const cs = [
-            `<span class="subject">${words[0]}</span> is ${conclusionDirName} of <span class="subject">${words[words.length-1]}</span>`,
-            `<span class="subject">${words[0]}</span> is <span class="is-negated">${nameInverseDir3D[conclusionDirName]}</span> of <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> находится ${conclusionDirName} от <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> находится <span class="is-negated">${nameInverseDir3D[conclusionDirName]}</span> от <span class="subject">${words[words.length-1]}</span>`,
         ];
         conclusion = (!savedata.enableNegation)
             ? cs[0]
@@ -1004,8 +1004,8 @@ function createDirectionQuestion3D(length) {
             wordCoordMap[words[0]]
         );
         const cs = [
-            `<span class="subject">${words[0]}</span> is ${oppositeDirection} of <span class="subject">${words[words.length-1]}</span>`,
-            `<span class="subject">${words[0]}</span> is <span class="is-negated">${nameInverseDir3D[oppositeDirection]}</span> of <span class="subject">${words[words.length-1]}</span>`
+            `<span class="subject">${words[0]}</span> находится ${oppositeDirection} от <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> находится <span class="is-negated">${nameInverseDir3D[oppositeDirection]}</span> от <span class="subject">${words[words.length-1]}</span>`
         ];
         conclusion = (!savedata.enableNegation)
             ? cs[0]
