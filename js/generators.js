@@ -40,7 +40,7 @@ function metaSubstitution(choosenPair, relations, negations) {
         if (savedata.enableNegation)
             substitution = `$1 <span class="is-negated"> такой же как</span> <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
         else
-            substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
+            substitution = `$1 противоположный к <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (negations[0] && negations[1] && relations[0] === relations[1])
         if (savedata.enableNegation)
             substitution = `$1 <span class="is-negated"> противоположный к</span> <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
@@ -51,7 +51,7 @@ function metaSubstitution(choosenPair, relations, negations) {
         if (savedata.enableNegation)
             substitution = `$1 <span class="is-negated">такой же как</span> <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
         else
-            substitution = `$1 opposite of <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
+            substitution = `$1 противоположный к <span class="is-meta">(<span class="subject">${a}</span> по отношению к <span class="subject">${b}</span>)</span> относительно `;
     if (!negations[0] && negations[1] && relations[0] !== relations[1])
         if (savedata.enableNegation)
             substitution = `$1 <span class="is-negated">противоположный к</span> <span class="is-meta">(<span class="subject">${a}</span> относительно <span class="subject">${b}</span>)</span> относительно `;
@@ -828,7 +828,7 @@ function createSameDifferent(length) {
                 : pickUniqueItems(cs, 1).picked[0];
         }
     }
-    conclusion += `<span class="subject">${c}</span> to <span class="subject">${d}</span>`;
+    conclusion += `<span class="subject">${c}</span> по отношению к <span class="subject">${d}</span>`;
 
     choice.label = "analogy";
     choice.category = "Analogy: " + subtype;
@@ -1077,8 +1077,8 @@ function createDirectionQuestion4D(length) {
                 wordCoordMap[words[i]][3] + timeIndex,   // time
             ];
             const ps = [
-                `<span class="subject">${words[i+1]}</span> ${timeName} ${dirName} of <span class="subject">${words[i]}</span>`,
-                `<span class="subject">${words[i+1]}</span> ${timeName} of <span class="is-negated">${nameInverseDir3D[dirName]}</span> of <span class="subject">${words[i]}</span>`,
+                `<span class="subject">${words[i+1]}</span> ${timeName} ${dirName} по отношению к <span class="subject">${words[i]}</span>`,
+                `<span class="subject">${words[i+1]}</span> ${timeName} по отношению к <span class="is-negated">${nameInverseDir3D[dirName]}</span> относительно <span class="subject">${words[i]}</span>`,
             ];
             premises.push((!savedata.enableNegation)
                 ? ps[0]
@@ -1095,8 +1095,8 @@ function createDirectionQuestion4D(length) {
     if (coinFlip()) { // correct
         isValid = true;
         const cs = [
-            `<span class="subject">${words[0]}</span> ${conclusionDirName.temporal} ${conclusionDirName.spatial} of <span class="subject">${words[words.length-1]}</span>`,
-            `<span class="subject">${words[0]}</span> ${conclusionDirName.temporal} of <span class="is-negated">${nameInverseDir3D[conclusionDirName.spatial]}</span> of <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> ${conclusionDirName.temporal} ${conclusionDirName.spatial} по отношению к <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> ${conclusionDirName.temporal} по отношению к <span class="is-negated">${nameInverseDir3D[conclusionDirName.spatial]}</span> по отношению к <span class="subject">${words[words.length-1]}</span>`,
         ];
         conclusion = (!savedata.enableNegation)
             ? cs[0]
@@ -1109,8 +1109,8 @@ function createDirectionQuestion4D(length) {
             wordCoordMap[words[0]]
         );
         const cs = [
-            `<span class="subject">${words[0]}</span> ${oppositeDirection.temporal} ${oppositeDirection.spatial} of <span class="subject">${words[words.length-1]}</span>`,
-            `<span class="subject">${words[0]}</span> ${oppositeDirection.temporal} of <span class="is-negated">${nameInverseDir3D[oppositeDirection.spatial]}</span> of <span class="subject">${words[words.length-1]}</span>`
+            `<span class="subject">${words[0]}</span> ${oppositeDirection.temporal} ${oppositeDirection.spatial} по отношению к <span class="subject">${words[words.length-1]}</span>`,
+            `<span class="subject">${words[0]}</span> ${oppositeDirection.temporal} по отношению к <span class="is-negated">${nameInverseDir3D[oppositeDirection.spatial]}</span> по отношению к <span class="subject">${words[words.length-1]}</span>`
         ];
         conclusion = (!savedata.enableNegation)
             ? cs[0]
