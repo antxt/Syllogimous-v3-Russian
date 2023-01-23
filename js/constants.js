@@ -2196,7 +2196,7 @@ xs.map(x =>
     )
 );
 
-const timeNames = ['was', 'is', 'will be'];
+const timeNames = ['было', 'есть', 'будет'];
 
 const paradoxes = [
     {
